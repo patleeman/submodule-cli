@@ -1,13 +1,16 @@
 {
-  "name": "submodule",
+  "name": "submodule-cli",
   "version": "1.0.0",
-  "description": "A cli to make git submodules easier",
+  "description": "A tiny utility that simplifies working with git submodules",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "submodule": "index.js"
+  },
   "author": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "minimist": "^1.2.0"
   }

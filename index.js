@@ -6,23 +6,22 @@
 const {exec} = require('child_process');
 const {version} = require('./package.json')
 const helpMessage = `
-
-Submodule Helper CLI (${version})
-A small CLI utility to help manage submodules.
+Submodule CLI (${version})
+Git submodule helper
 
 Commands:
-    help    List commands
     pull    Recursively checks out master branch and pull and update all submodules
     init    Recursively checks out and initializes all submodules in a project
+    help    List commands
 `;
 
 const argv = require('minimist')(process.argv.slice(2));
-console.log('args', argv);
+
 if (argv['_'].length > 0) {
   let cmd = '';
   switch (argv['_'][0]) {
     case 'help':
-      console.log(helpMessaxge);
+      console.log(helpMessage);
       return;
     case 'init':
     case 'pull':
