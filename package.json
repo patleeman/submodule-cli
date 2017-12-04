@@ -1,6 +1,6 @@
 {
   "name": "submodule-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny utility that simplifies working with git submodules",
   "main": "index.js",
   "scripts": {
