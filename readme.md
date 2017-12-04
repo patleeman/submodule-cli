@@ -20,5 +20,7 @@ submodule <command>
 Commands:
     pull    Recursively checks out master branch and pull and update all submodules
     init    Recursively checks out and initializes all submodules in a project
+    fetch   Recursively fetches all new changes in submodules but does not pull or update.
+    status  Executes 'git submodule status'
     help    List commands
 ```

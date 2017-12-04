@@ -12,6 +12,8 @@ Git submodule helper
 Commands:
     pull    Recursively checks out master branch and pull and update all submodules
     init    Recursively checks out and initializes all submodules in a project
+    fetch   Recursively fetches all new changes in submodules but does not pull or update.
+    status  Executes 'git submodule status'
     help    List commands
 `;
 
@@ -25,9 +27,14 @@ if (argv['_'].length > 0) {
       return;
     case 'init':
     case 'pull':
-    case 'update':
       // Recursively pull all submodules in project
       cmd = `git submodule foreach 'git fetch origin --tags; git checkout master; git pull' && git pull && git submodule update --init --recursive`;
+      break;
+    case 'fetch':
+      cmd = `git submodule foreach 'git fetch origin --tags;'`;
+      break;
+    case 'status':
+      cmd = `git submodule status`;
       break;
     default:
       console.log(helpMessage);
@@ -39,7 +46,7 @@ if (argv['_'].length > 0) {
         console.error(err);
         return;
       }
-      console.log(`Submodule executing:\n----------\n\n${stdout}\n${stderr}\n----------\nSubmodule complete.`);
+      console.log(`\n--------------------\n\n${stdout}\n${stderr}\n--------------------\n`);
     });
   } else {
     console.error('Invalid command');
